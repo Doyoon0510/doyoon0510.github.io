@@ -10,7 +10,7 @@ if (window.location.pathname.split("/").pop() === 'index.html') {
     path = 'assets';
 } else {
     path = '..';
-    document.querySelector('title').innerText = document.getElementById('title').innerText;
+    document.querySelector('title')?.innerText = document.getElementById('title').innerText;
 }
 $option_list.innerHTML = `
 <li id="theme" class="option btn"><img src="${path}/imgs/light.png" width="20" height="20"/>Light</li>
