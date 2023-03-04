@@ -10,7 +10,7 @@ if (window.location.pathname.split("/").pop() === 'index.html') {
     path = 'assets';
 } else {
     path = '..';
-    if (document.querySelector('title')) {
+    if (document.getElementById('title')) {
         document.querySelector('title').innerText = document.getElementById('title').innerText;
     }
     
