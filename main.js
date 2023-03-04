@@ -6,14 +6,12 @@ let date = $time?.getAttribute('datetime').split('-');
 if (date) {
     $time.innerText = date[0] + '년 ' + date[1] + '월 ' + date[2] + '일 ';
 }
+console.log(window.location.pathname.split("/").pop());
 if (window.location.pathname.split("/").pop() === 'index.html') {
     path = 'assets';
 } else {
     path = '..';
-    if (document.getElementById('title')) {
-        document.querySelector('title').innerText = document.getElementById('title').innerText;
-    }
-    
+    document.querySelector('title').innerText = document.getElementById('title').innerText;
 }
 $option_list.innerHTML = `
 <li id="theme" class="option btn"><img src="${path}/imgs/light.png" width="20" height="20"/>Light</li>
