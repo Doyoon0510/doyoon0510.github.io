@@ -6,7 +6,7 @@ let date = $time?.getAttribute('datetime').split('-');
 if (date) {
     $time.innerText = date[0] + '년 ' + date[1] + '월 ' + date[2] + '일 ';
 }
-console.log(window.location.pathname.split("/").pop());
+console.log(window.location.pathname);
 if (window.location.pathname.split("/").pop() === 'index.html') {
     path = 'assets';
 } else {
