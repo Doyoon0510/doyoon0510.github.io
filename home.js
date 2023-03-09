@@ -2,11 +2,11 @@ import {$cat_list, cat, fetchPost, postGenerate} from './module.mjs';
 
 const urlParams = new URLSearchParams(window.location.search);
 let select_cat = urlParams.get('category');
-const $cat = document.getElementsByClassName('cat');
-
 for (let i = 0; i < cat.length; ++i) {
     $cat_list.innerHTML += `<li class="cat btn">${cat[i]}</li>`;
 }
+const $cat = document.getElementsByClassName('cat');
+
 console.log();
 for (let i = 0; i < $cat.length; ++i) {
     $cat[i].addEventListener('click', function () {
