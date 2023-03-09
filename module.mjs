@@ -5,7 +5,7 @@ let post = {
     content: [],
     link: []
   };
-const cat = ['토막글', 'cat1', 'cat2'];
+const cat = ['짧은 글', '긴 글', 'cat2'];
 const $cat_list = document.getElementById('cat-list');
   function fetchPost(i = 0, xhr = new XMLHttpRequest()) {
     return new Promise((resolve, reject) => {
