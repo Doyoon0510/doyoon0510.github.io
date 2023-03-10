@@ -1,5 +1,4 @@
-
-import {cat} from 'https://github.com/Doyoon0510/doyoon0510.github.io/blob/main/module.mjs';
+import {cat} from './module.mjs';
 const $cat = document.getElementById('cat');
 $cat.setAttribute('href', `https://doyoon0510.github.io/?category=${$cat.innerText}`);
 $cat.innerText = cat[$cat.innerText];
@@ -10,13 +9,19 @@ let date = $time?.getAttribute('datetime').split('-');
 if (date) {
     $time.innerText = date[0] + '년 ' + date[1] + '월 ' + date[2] + '일 ';
 }
+if (window.location.pathname === '/') {
+    path = 'assets';
+} else {
+    path = '..';
+    document.querySelector('title').innerText = document.getElementById('title').innerText;
+}
 $option_list.innerHTML = `
-<li id="theme" class="option btn"><img src="https://github.com/Doyoon0510/doyoon0510.github.io/tree/main/assets/imgs/light.png" width="20" height="20"/>Light</li>
+<li id="theme" class="option btn"><img src="${path}/imgs/light.png" width="20" height="20"/>Light</li>
 <li id="sound" class="option btn">소리 끄기</li>
 `
 const $btn = document.getElementsByClassName('btn');
 const $theme = document.getElementById('theme');
-const click_sound = new Audio(`https://github.com/Doyoon0510/doyoon0510.github.io/tree/main/assets/sounds/1.mp3`);
+const click_sound = new Audio(`${path}/sounds/1.mp3`);
 let sound = true;
 $theme.addEventListener('click', function () {
     if ($theme.innerText === "Light") {
@@ -40,7 +45,7 @@ $theme.addEventListener('click', function () {
     --text2: powderblue;
     --text3: #f0efe3;*/
     } else {
-        $theme.innerHTML = `<img src="https://github.com/Doyoon0510/doyoon0510.github.io/tree/main/assets/imgs/light.png" width="20" height="20"/>Light`;
+        $theme.innerHTML = `<img src="${path}/imgs/light.png" width="20" height="20"/>Light`;
         document.documentElement.style.setProperty('--bg', '#c7ac72');
         document.documentElement.style.setProperty('--bg2', '#3d3a2f');
         document.documentElement.style.setProperty('--bg3', '#d6cbb5');
