@@ -41,7 +41,9 @@ header {
     display: flex;
     flex-direction: row;
 } header a {
-    display: inline-block;
+    display: flex; /* Flexbox를 사용합니다 */
+    justify-content: center; /* 수평 가운데 정렬을 합니다 */
+    align-items: center; /* 수직 가운데 정렬을 합니다 */
     border-radius: 0 16px 128px 0;
     color: var(--text);
     border: 3px solid var(--line2);
@@ -129,12 +131,11 @@ nav {
     border: 2px solid var(--line);
 }
 main {
-    background-color: var(--bg4);
     width: 50%;
-    padding: 30px;
     position: absolute;
     justify-self: center;
     border-radius: 10px;
+    background-color: var(--bg);
     color: var(--text3);
 }
 nav p {
@@ -175,9 +176,12 @@ time {
     border: 2px solid var(--bg3);
     color: var(--text);
 }
-main {
-    text-align: justify;
-}
 .post-title {
     color: var(--text3);
+}
+.post {
+    background-color: var(--bg4);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
 }

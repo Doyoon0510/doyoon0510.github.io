@@ -48,6 +48,7 @@ const $cat_list = document.getElementById('cat-list');
           <li class="post">
             <a href="assets/posts/${post.link[i]}"><h1 class="post-title">${post.title[i]}</h1></a>
             <time datetime="${post.date[i]}">${post.date[i]}</time>
+            <a id="cat" href="">${post.cat[i]}</a>
             <p>${post.content[i]}</p>
           </li>
         `;
