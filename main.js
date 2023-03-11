@@ -1,7 +1,4 @@
-import {cat} from './module.mjs';
-const $cat = document.getElementById('cat');
-$cat.setAttribute('href', `https://doyoon0510.github.io/?category=${$cat.innerText}`);
-$cat.innerText = cat[$cat.innerText];
+
 const $option_list = document.getElementById('option-list');
 let path = 0;
 const $time = document.querySelector('time');
@@ -13,7 +10,7 @@ if (window.location.pathname === '/') {
     path = 'assets';
 } else {
     path = '..';
-    document.querySelector('title').innerText = document.getElementById('title').innerText;
+    document.querySelector('title').innerText = document.getElementById('title').innerText; // 포스트 타이틀 변경
 }
 $option_list.innerHTML = `
 <li id="theme" class="option btn"><img src="${path}/imgs/light.png" width="20" height="20"/>Light</li>

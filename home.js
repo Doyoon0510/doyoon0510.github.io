@@ -1,9 +1,9 @@
-import {$cat_list, cat, fetchPost, postGenerate} from './module.mjs';
+import {$cat_list, cats, fetchPost, postGenerate} from './module.mjs';
 
 const urlParams = new URLSearchParams(window.location.search);
 let select_cat = urlParams.get('category');
-for (let i = 0; i < cat.length; ++i) {
-    $cat_list.innerHTML += `<li class="cat btn">${cat[i]}</li>`;
+for (let i = 0; i < cats.length; ++i) {
+    $cat_list.innerHTML += `<li class="cat btn">${cats[i]}</li>`;
 }
 const $cat = document.getElementsByClassName('cat');
 

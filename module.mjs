@@ -5,7 +5,7 @@ let post = {
     content: [],
     link: []
   };
-const cat = ['짧은 글', '긴 글', 'cat2'];
+const cats = ['짧은 글', '긴 글', 'cat2'];
 const $cat_list = document.getElementById('cat-list');
   function fetchPost(i = 0, xhr = new XMLHttpRequest()) {
     return new Promise((resolve, reject) => {
@@ -48,7 +48,7 @@ const $cat_list = document.getElementById('cat-list');
           <li class="post">
             <a href="assets/posts/${post.link[i]}"><h1 class="post-title">${post.title[i]}</h1></a>
             <time datetime="${post.date[i]}">${post.date[i]}</time>
-            <a id="cat" href="">${post.cat[i]}</a>
+            <a id="cat" href="${`https://doyoon0510.github.io/?category=${post.cat[i]}`}">${cats[post.cat[i]]}</a>
             <p>${post.content[i]}</p>
           </li>
         `;
@@ -56,4 +56,4 @@ const $cat_list = document.getElementById('cat-list');
     }
   }
 
-  export { $cat_list, cat, post, fetchPost, postGenerate };
+  export { $cat_list, cats, post, fetchPost, postGenerate };

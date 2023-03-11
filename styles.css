@@ -131,11 +131,12 @@ nav {
     border: 2px solid var(--line);
 }
 main {
-    width: 50%;
+    padding: 30px;
+    width: 40%;
     position: absolute;
     justify-self: center;
     border-radius: 10px;
-    background-color: var(--bg);
+    background-color: var(--bg4);
     color: var(--text3);
 }
 nav p {
@@ -180,8 +181,8 @@ time {
     color: var(--text3);
 }
 .post {
-    background-color: var(--bg4);
-    border-radius: 15px;
+    border: 3px solid var(--line2);
+    border-radius: 10px;
     padding: 20px;
     margin: 20px;
 }
