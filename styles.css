@@ -41,9 +41,9 @@ header {
     display: flex;
     flex-direction: row;
 } header a {
-    display: flex; /* Flexbox를 사용합니다 */
-    justify-content: center; /* 수평 가운데 정렬을 합니다 */
-    align-items: center; /* 수직 가운데 정렬을 합니다 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 0 16px 128px 0;
     color: var(--text);
     border: 3px solid var(--line2);
@@ -77,11 +77,20 @@ header {
   margin: 10px;
   bottom: 3px;
 }
+#option-list {
+    display: flex;
+    justify-content: top;
+}
 .option {
-    display: inline-block;
+    display: inline-flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
     border-radius: 5px;
-    margin: 5px;
+    margin-top: 15px;
+    margin-left: 10px;
     padding: 5px;
+    height: max-content;
     color: #ffedc5;
     border-left: 2px solid var(--line2);
     border-right: 2px solid var(--line2);
@@ -190,4 +199,23 @@ time {
 .post-title:hover {
     color: var(--text2);
     transition-duration: 0.1s;
+}
+#font span {
+    display: inline-block;
+    text-align: center;
+    text-justify: center;
+    border-radius: 5px;
+}
+#font span:hover {
+    background-color: var(--bg);
+    color: var(--text);
+}
+#font:hover span {
+    width: 20px;
+}
+#increase {
+    color: rgb(200, 249, 255);
+}
+#decrease {
+    color: tomato;
 }

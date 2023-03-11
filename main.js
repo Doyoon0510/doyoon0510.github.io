@@ -15,6 +15,7 @@ if (window.location.pathname === '/') {
 $option_list.innerHTML = `
 <li id="theme" class="option btn"><img src="${path}/imgs/light.png" width="20" height="20"/>Light</li>
 <li id="sound" class="option btn">소리 끄기</li>
+<li id="font" class="option"><b><span id="increase" class="btn">+</span></b>글자 크기<b><span id="decrease" class="btn">-</span></b></li>
 `
 const $btn = document.getElementsByClassName('btn');
 const $theme = document.getElementById('theme');
@@ -65,3 +66,14 @@ document.getElementById('sound').addEventListener('click', function() {
 for (let i = 0; i < $btn.length; ++i) {
     $btn[i].addEventListener('click', function() { if (sound) {click_sound.play()}});
 }
+document.getElementById('increase').addEventListener('click', function () {
+    document.body.style.fontSize = window.getComputedStyle(document.body).getPropertyValue("font-size").replace(/\d+/g, (size) => {
+        return parseInt(size) + 2;
+      });
+    console.log(document.body.style.fontSize);
+});
+document.getElementById('decrease').addEventListener('click', function () {
+    document.body.style.fontSize = window.getComputedStyle(document.body).getPropertyValue("font-size").replace(/\d+/g, (size) => {
+        return parseInt(size) - 2;
+      });
+});
