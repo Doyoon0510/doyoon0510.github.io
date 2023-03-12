@@ -5,7 +5,7 @@ let post = {
     content: [],
     link: []
   };
-const cats = ['짧은 글', '긴 글', 'cat2'];
+const cats = ['짧은 글', '긴 글', '수학'];
 const $cat_list = document.getElementById('cat-list');
   function fetchPost(i = 0, xhr = new XMLHttpRequest()) {
     return new Promise((resolve, reject) => {
@@ -24,9 +24,9 @@ const $cat_list = document.getElementById('cat-list');
                 // 원하는 요소 선택
                 post.title[i] = htmlDoc.getElementById('title').innerText;
                 post.date[i] = htmlDoc.querySelector('time').getAttribute('datetime');
-                post.cat[i] = htmlDoc.getElementById('cat').innerText;
+                post.cat[i] = htmlDoc.getElementById('cat').innerText.split(',');
                 post.content[i] = htmlDoc.querySelector('main p').innerText;
-                post.link[i] = `${i}.html`
+                post.link[i] = `${i}.html`;
                 // 다음 포스트 가져오기
                 resolve(fetchPost(i + 1, xhr));
               })
@@ -41,22 +41,32 @@ const $cat_list = document.getElementById('cat-list');
   }
   
   function postGenerate(cat = -1, $post_list = document.getElementById('post-list')) {
+    let post_cats = '';
+    let correct_post = false;
     $post_list.innerHTML = '';
-    for (const i in post.title) {
-      if (cat === -1 || post.cat[i] == cat) {
+    for (let i = 0; i < post.title.length; ++i) {
+      post_cats = '';
+      correct_post = false;
+      for (const j of post.cat[i]) {
+        post_cats += `<a id="cat" href="${`https://doyoon0510.github.io/?category=${j}`}">${cats[j]}</a>`;
+        if (cat ===  parseInt(j)) {
+          correct_post = true;
+        }
+      }
+      if (cat === -1 || correct_post) {
         if (cat === -1) {
           document.getElementById('curt-cat').innerText = '전체 포스트';
         } else {
-          document.getElementById('curt-cat').innerText = cats[post.cat[i]];
+          document.getElementById('curt-cat').innerText = cats[cat];
         }
         $post_list.innerHTML += `
-          <li class="post">
-            <a href="assets/posts/${post.link[i]}"><h1 class="post-title">${post.title[i]}</h1></a>
-            <time datetime="${post.date[i]}">${post.date[i]}</time>
-            <a id="cat" href="${`https://doyoon0510.github.io/?category=${post.cat[i]}`}">${cats[post.cat[i]]}</a>
-            <p>${post.content[i]}</p>
-          </li>
-        `;
+        <li class="post">
+          <a href="assets/posts/${post.link[i]}"><h1 class="post-title">${post.title[i]}</h1></a>
+          <time datetime="${post.date[i]}">${post.date[i]}</time>
+          ${post_cats}
+          <p>${post.content[i]}</p>
+        </li>
+      `;
       }
     }
   }
