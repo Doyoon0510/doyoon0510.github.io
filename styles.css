@@ -219,3 +219,6 @@ time {
 #decrease {
     color: tomato;
 }
+#curt-cat {
+    color: var(--text2);
+}

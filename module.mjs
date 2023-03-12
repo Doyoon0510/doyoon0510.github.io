@@ -44,6 +44,11 @@ const $cat_list = document.getElementById('cat-list');
     $post_list.innerHTML = '';
     for (const i in post.title) {
       if (cat === -1 || post.cat[i] == cat) {
+        if (cat === -1) {
+          document.getElementById('curt-cat').innerText = '전체 포스트';
+        } else {
+          document.getElementById('curt-cat').innerText = cats[post.cat[i]];
+        }
         $post_list.innerHTML += `
           <li class="post">
             <a href="assets/posts/${post.link[i]}"><h1 class="post-title">${post.title[i]}</h1></a>
